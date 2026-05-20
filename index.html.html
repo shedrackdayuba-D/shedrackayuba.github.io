@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shedrack Ayuba | Project Manager & M&E Consultant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #d69e2e;
+            --accent-light: #ecc94b;
+            --dark: #0f172a;
+            --light: #f7fafc;
+            --text: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(214,158,46,0.1);
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content h1 span {
+            color: var(--accent-light);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .hero-bio {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-light);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(214,158,46,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            color: var(--white);
+        }
+        
+        .hero-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+        
+        .hero-card-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .hero-card-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .hero-card-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(214,158,46,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+            flex-shrink: 0;
+        }
+        
+        .hero-card-text h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .hero-card-text p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .section-line {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .about {
+            background: var(--light);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .about-content h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: var(--white);
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .highlight-box h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .highlight-box p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        .about-credentials {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .credential-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .credential-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .credential-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .credential-text h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .credential-text p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .credential-badge {
+            display: inline-block;
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .experience {
+            background: var(--white);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 2rem;
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 2rem;
+            margin-left: 50%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            right: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -6px;
+        }
+        
+        .timeline-content {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .timeline-content li {
+            padding-left: 1.25rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .projects {
+            background: var(--light);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            opacity: 0.05;
+            border-radius: 0 0 0 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .project-donor {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-card h3 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        
+        .skills {
+            background: var(--white);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .skill-category h3 i {
+            color: var(--accent);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: var(--white);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .skill-tag.highlight {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .contact {
+            background: var(--gradient);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact > .container > p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+        
+        .contact-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent-light);
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card p, .contact-card a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: var(--accent-light);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 3rem;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+            
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 14px;
+                right: auto;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Shedrack<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Shedrack <span>Ayuba</span></h1>
+                <p class="hero-subtitle">Project Manager & M&E Consultant</p>
+                <p class="hero-bio">
+                    Results-driven professional with 7+ years of experience combining technical expertise, 
+                    innovative thinking, and strong execution capacity. Specialized in Monitoring & Evaluation, 
+                    Data Analysis, and Research across local and international NGOs, private organizations, 
+                    and state governments.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">7+</div>
+                        <div class="stat-label">Years Exp.</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Donors</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="#experience" class="btn btn-secondary">
+                        <i class="fas fa-briefcase"></i> View Experience
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <h3><i class="fas fa-bullseye"></i> Current Focus</h3>
+                    <div class="hero-card-item">
+                        <div class="hero-card-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="hero-card-text">
+                            <h4>Agribusiness & MSME Development</h4>
+                            <p>Leading MEL frameworks for Farmwarehouse Limited</p>
+                        </div>
+                    </div>
+                    <div class="hero-card-item">
+                        <div class="hero-card-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="hero-card-text">
+                            <h4>Renewable Energy</h4>
+                            <p>Powering Renewable Energy Opportunities Project</p>
+                        </div>
+                    </div>
+                    <div class="hero-card-item">
+                        <div class="hero-card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="hero-card-text">
+                            <h4>Performance Metrics</h4>
+                            <p>Developing 2026 organizational scorecards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Professional background and core competencies</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Driving Impact Through Evidence</h3>
+                    <p>
+                        I am an experienced Project Manager and Research, Monitoring, and Evaluation (M&E) Consultant 
+                        with a demonstrated history of working in the research and development sector. I possess strong 
+                        expertise in Monitoring and Evaluation, Statistics, Data Analysis, and both Qualitative and 
+                        Quantitative Research methodologies.
+                    </p>
+                    <p>
+                        My work spans across major donor-funded programmes including UNDP, World Bank, USAID, 
+                        Bill & Melinda Gates Foundation, and international NGOs. I specialize in translating complex 
+                        data into clear, actionable insights that drive strategic planning and programme refinement.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-box">
+                            <h4>MBA</h4>
+                            <p>Ahmadu Bello University Zaria</p>
+                        </div>
+                        <div class="highlight-box">
+                            <h4>B.Sc. Economics</h4>
+                            <p>First Class Honours, Kaduna State University</p>
+                        </div>
+                        <div class="highlight-box">
+                            <h4>Languages</h4>
+                            <p>English (Advanced Professional), Hausa (Fluent)</p>
+                        </div>
+                        <div class="highlight-box">
+                            <h4>Certifications</h4>
+                            <p>NVivo, M&E Essentials, Data Analysis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-credentials">
+                    <div class="credential-item">
+                        <div class="credential-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>MBA in Business Administration</h4>
+                            <p>Ahmadu Bello University, Zaria</p>
+                            <span class="credential-badge">Postgraduate</span>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div class="credential-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>B.Sc. Economics (First Class)</h4>
+                            <p>Kaduna State University, Kaduna</p>
+                            <span class="credential-badge">First Class Honours</span>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div class="credential-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>Professional Certifications</h4>
+                            <p>Qualitative Data Coding with NVivo (Academic Hive)</p>
+                            <p>Essentials of M&E (Alison)</p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div class="credential-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>Awards</h4>
+                            <p>Gwong Development Association (GDA) Award for Academic Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <p>Professional journey and key responsibilities</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">August 2025 - Present</span>
+                        <h3>Project Manager</h3>
+                        <h4>Farmwarehouse Limited</h4>
+                        <ul>
+                            <li>Lead design and implementation of MEL frameworks across agribusiness and MSME development projects</li>
+                            <li>Drive adaptive management processes integrating real-time data for evidence-based decision-making</li>
+                            <li>Oversee UNDP MSME Capacity Building Project and Powering Renewable Energy Opportunities Project</li>
+                            <li>Design data collection tools, manage stakeholder engagement, and supervise field activities</li>
+                            <li>Develop organizational performance metrics including 2026 performance scorecard</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">March 2022 - July 2025</span>
+                        <h3>Senior Research Executive / M&E Consultant</h3>
+                        <h4>Seven Star Consultants</h4>
+                        <ul>
+                            <li>Designed and implemented MEL frameworks across multiple donor-funded programmes</li>
+                            <li>Led baseline, midline, and endline evaluations using mixed-methods and quasi-experimental designs</li>
+                            <li>Delivered MEL support across UNDP, World Bank, USAID, BMGF, and international NGOs</li>
+                            <li>Conducted advanced quantitative and qualitative data analysis and synthesis</li>
+                            <li>Spearheaded stakeholder engagement with government agencies and development partners</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 2019 - February 2021</span>
+                        <h3>Research Analyst</h3>
+                        <h4>Preston Consults Limited</h4>
+                        <ul>
+                            <li>Developed company proposals, concept notes, and M&E frameworks</li>
+                            <li>Conducted literature reviews and desk reviews for research projects</li>
+                            <li>Provided technical assistance to Imo, Oyo and Benue States on SFTAS requirements</li>
+                            <li>Analysed data and wrote sections of social budgeting and fiscal space reports</li>
+                            <li>Coordinated external consultants and managed project deliverables</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">March - December 2021</span>
+                        <h3>Research Analyst</h3>
+                        <h4>Cambio Development Communication Initiative</h4>
+                        <ul>
+                            <li>Produced case studies on governance, investment, and development issues</li>
+                            <li>Developed organizational strategy document including Theory of Change and results framework</li>
+                            <li>Created M&E framework for effective monitoring and impact evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2017 - 2019</span>
+                        <h3>Volunteer</h3>
+                        <h4>Generations for Peace, Kaduna</h4>
+                        <ul>
+                            <li>Attended capacity building seminars for youth promoting active tolerance</li>
+                            <li>Conducted impact assessments of peace building initiatives</li>
+                            <li>Sensitized youth on fostering active tolerance and responsible citizenship</li>
+                            <li>Engaged stakeholders on youth empowerment strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Projects</h2>
+                <p>Selected portfolio of donor-funded evaluations and assessments</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-globe"></i> World Bank</span>
+                    <h3>AGILE Ekiti State Out-of-School Children Survey</h3>
+                    <p>Led large-scale field data collection and MEL processes, ensuring robust data quality assurance and synthesizing findings into policy-relevant insights for education sector planning.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Ekiti State</span>
+                        <span><i class="fas fa-users"></i> Education</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-hand-holding-heart"></i> UNDP</span>
+                    <h3>UNDP Peace-building Fund Endline Evaluation</h3>
+                    <p>Designed data collection tools and protocols, coordinated field implementation, and authored the final evaluation report highlighting key outcomes and lessons learned.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> North-East Nigeria</span>
+                        <span><i class="fas fa-peace"></i> Peace-building</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-heartbeat"></i> BMGF</span>
+                    <h3>Gender Analysis Survey of 5 Priority States</h3>
+                    <p>Led implementation across Borno, Bauchi, Gombe, Sokoto, and Yobe states assessing community perception of RMNCAH+N services and sociocultural barriers.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> 5 States</span>
+                        <span><i class="fas fa-female"></i> Gender & Health</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-bolt"></i> REA/UNDP</span>
+                    <h3>Impact Evaluation of Rural Electrification Mini-grids</h3>
+                    <p>Assessed economic, social, and environmental impact of renewable energy projects on beneficiary households, businesses, and farms.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Nigeria</span>
+                        <span><i class="fas fa-solar-panel"></i> Energy</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-seedling"></i> Propcom+Palladium</span>
+                    <h3>Rural Seed Promotion (RSP) Endline Evaluation</h3>
+                    <p>Led endline evaluation using quasi-experimental design, developing analysis frameworks and translating findings into actionable insights for programme scale-up.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Nigeria</span>
+                        <span><i class="fas fa-tractor"></i> Agriculture</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-hands-helping"></i> JRS</span>
+                    <h3>Education Needs Assessment (Sokoto, Kano, Jigawa)</h3>
+                    <p>Assessed how political dynamics, insecurity, and natural disasters affected household socio-economic status, unemployment, and access to basic education.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> 3 States</span>
+                        <span><i class="fas fa-school"></i> Education</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-balance-scale"></i> OXFAM</span>
+                    <h3>Community Development Planning (CDP) Evaluation</h3>
+                    <p>Measured outcomes and effectiveness of CDP intervention in enhancing social cohesion and participatory development planning in Michika LGA, Adamawa State.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Adamawa</span>
+                        <span><i class="fas fa-users"></i> Community Dev</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-search"></i> Search for Common Ground</span>
+                    <h3>CRIN-VIN Baseline Study (Niger Delta)</h3>
+                    <p>Investigated social, political, environmental, and economic drivers of violence and criminality in Bayelsa, Delta, and Rivers states.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Niger Delta</span>
+                        <span><i class="fas fa-shield-alt"></i> Conflict</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-donor"><i class="fas fa-hospital"></i> NACA</span>
+                    <h3>HR Audit & Gap Analysis of PHC Facilities</h3>
+                    <p>Conducted human resource audit, skill appraisal, and gap analysis to develop task shifting/sharing policy for health workforce in Gombe and Nasarawa states.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> 2 States</span>
+                        <span><i class="fas fa-user-md"></i> Health Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills & Expertise</h2>
+                <p>Technical competencies and professional capabilities</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> M&E & Research</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Monitoring & Evaluation</span>
+                        <span class="skill-tag highlight">Results Frameworks</span>
+                        <span class="skill-tag">Theory of Change</span>
+                        <span class="skill-tag">KPI Development</span>
+                        <span class="skill-tag">Baseline Studies</span>
+                        <span class="skill-tag">Endline Evaluations</span>
+                        <span class="skill-tag">Mixed Methods Research</span>
+                        <span class="skill-tag">Quasi-Experimental Design</span>
+                        <span class="skill-tag">Qualitative Research</span>
+                        <span class="skill-tag">Quantitative Research</span>
+                        <span class="skill-tag">Data Quality Assurance</span>
+                        <span class="skill-tag">Learning Agendas</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Power BI</span>
+                        <span class="skill-tag highlight">Stata</span>
+                        <span class="skill-tag highlight">SPSS</span>
+                        <span class="skill-tag">Excel (Advanced)</span>
+                        <span class="skill-tag">EVIEWS</span>
+                        <span class="skill-tag">NVivo</span>
+                        <span class="skill-tag">ODK</span>
+                        <span class="skill-tag">Kobo Collect</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Data Synthesis</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tasks"></i> Project Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Project Management</span>
+                        <span class="skill-tag">Adaptive Management</span>
+                        <span class="skill-tag">Stakeholder Engagement</span>
+                        <span class="skill-tag">Budget Management</span>
+                        <span class="skill-tag">Team Coordination</span>
+                        <span class="skill-tag">Field Supervision</span>
+                        <span class="skill-tag">Enumerator Training</span>
+                        <span class="skill-tag">Report Writing</span>
+                        <span class="skill-tag">Proposal Development</span>
+                        <span class="skill-tag">Technical Writing</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe-africa"></i> Sector Expertise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agribusiness</span>
+                        <span class="skill-tag">MSME Development</span>
+                        <span class="skill-tag">Renewable Energy</span>
+                        <span class="skill-tag">Education</span>
+                        <span class="skill-tag">Health Systems</span>
+                        <span class="skill-tag">Gender & Inclusion</span>
+                        <span class="skill-tag">Peace-building</span>
+                        <span class="skill-tag">Livelihoods</span>
+                        <span class="skill-tag">Public Financial Management</span>
+                        <span class="skill-tag">Conflict Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Available for consultancy, project management, and M&E leadership roles</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Phone</h4>
+                    <a href="tel:+2348183512058">+234 818 351 2058</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:shedrackayuba@email.com">shedrackayuba@email.com</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Location</h4>
+                    <p>Plot 3, Koton Karfe Close<br>Area 3 Garki, Abuja, Nigeria</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>Availability</h4>
+                    <p>Open for Consultancy<br>& Full-time Roles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p> Shedrack Ayuba. All rights reserved. | Project Manager & M&E Consultant</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+        });
+        
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.timeline-item, .project-card, .skill-category').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
